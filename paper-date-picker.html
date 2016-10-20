@@ -121,7 +121,8 @@ styling:
         letter-spacing: 0.025em;
       }
       #heading .date span {
-        white-space: nowrap;
+        /* Quick fix for rare display bug. */
+        /*white-space: nowrap;*/
       }
       #heading .year {
         @apply(--paper-font-body2);
