@@ -256,6 +256,11 @@ styling:
         _minYear: {
           type: Number,
           computed: '_getFullYear(minDate)'
+        },
+        highlight: {
+          type: Array,
+          value: [],
+          notify: true
         }
       },
       behaviors: [

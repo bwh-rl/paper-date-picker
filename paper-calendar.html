@@ -160,6 +160,12 @@
       .day-item.selected .day {
         color: var(--text-primary-color);
       }
+      .day-item.highlight {
+        background: var(--date-picker-highlight-color, --light-primary-color);
+      }
+      .day-item.highlight .day {
+        color: var(--text-primary-color) !important;
+      }
       .day-item:not([disabled]) {
         cursor: pointer;
       }
@@ -303,6 +309,11 @@
         _contentClass: String,
         _months: Array,
         _firstDayOfWeek: Number,
+        highlight: {
+          type: Array,
+          value: [],
+          notify: true
+        }
       },
       behaviors: [
         Polymer.IronResizableBehavior
@@ -426,6 +437,9 @@
             this.async(function() {
               this._updateSelection();
             });
+          }
+          if( this.highlight[ 0 ] && this.highlight.indexOf( date.getTime() / 1000 ) != -1 ) {
+            cssClass += ' highlight';
           }
         }
         return cssClass;
