@@ -148,8 +148,12 @@
       }
       .day-item {
         border-radius: 100%;
-        width: 100%;
-        height: 100%;
+        width: 28px;
+        height: 28px;
+      }
+      :host([narrow]) .day-item {
+        width: 39px;
+        height: 39px;
       }
       .day-item::selection {
         background: none;
@@ -203,7 +207,7 @@
               <div class="month-row month-days">
                 <template is="dom-repeat" items="{{row}}">
                   <div class="month-col">
-                    <div class$="{{_getDayClass('day-item selection', item.date, today, date)}}"
+                    <div class$="{{_getDayClass('day-item selection', item.date, today, date, highlight)}}"
                       disabled$="{{_isDisabled(item.day, item.date, minDate, maxDate)}}"
                       on-tap="_tapDay" date$="{{item.name}}">
                       <div class="day">{{item.day}}</div>
